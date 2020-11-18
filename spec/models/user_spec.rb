@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "名前、メールアドレス、パスワード、プロフィールがある場合、有効である" do
+  it "名前、メールアドレス、パスワード、有効である" do
     expect(FactoryBot.create(:user)).to be_valid
   end
 
@@ -15,10 +15,6 @@ RSpec.describe User, type: :model do
 
   it "パスワードがない場合、無効である" do
     expect(FactoryBot.build(:user, password:"")).to_not be_valid
-  end
-
-  it "プロフィールがない場合、無効である" do
-    expect(FactoryBot.build(:user, profile:"")).to_not be_valid
   end
 
   it "メールアドレスが重複している場合、無効である" do
