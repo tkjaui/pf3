@@ -1,5 +1,14 @@
 <h1>新規データ復旧作成</h1>
 
+<% if @service.errors.any? %>
+  <h2><%= pluralize(@service.errors.count, "error" )%> prohibited this object from being saved: not successfully</h2>
+  <ul>
+    <% @service.errors.full_messages.each do |message| %>
+      <li><%= message %></li> 
+    <% end %>
+  </ul>
+<% end %>
+
 
 <%= form_for @service do |f| %>
 

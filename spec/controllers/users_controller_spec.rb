@@ -14,25 +14,25 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  # describe "show" do
-  #   before do
-  #     @user = User.new(
-  #       username: "naoki",
-  #       email: "naoki@gmail.com",
-  #       password: "123456",
-  #       profile: "hello!"
-  #     )
-  #   end
-  #   it "returns http success" do
-  #     get :show, params:{id: @user.id}
-  #     expect(response).to render_template :show
-  #   end
+  describe "show" do
+    before do
+      @user = User.new(
+        username: "naoki",
+        email: "naoki@gmail.com",
+        password: "123456",
+        profile: "hello!"
+      )
+    end
+    it "returns http success" do
+      get :show, params:{id: @user.id}
+      expect(response).to render_template :show
+    end
 
-  #   it "200レスポンスが帰ってきているか" do
-  #     get :show, params:{id: @user.id}
-  #     expect(response).to have_http_status "200"
-  #   end
-  # end
+    it "200レスポンスが帰ってきているか" do
+      get :show, params:{id: @user.id}
+      expect(response).to have_http_status "200"
+    end
+  end
 
   # describe "GET #edit" do
   #   it "returns http success" do

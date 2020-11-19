@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_223723) do
+ActiveRecord::Schema.define(version: 2020_11_19_003308) do
 
   create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "company"
     t.string "device"
     t.string "problem"
-    t.integer "price"
-    t.integer "days"
+    t.string "price"
+    t.string "days"
     t.string "result"
     t.text "body"
     t.string "image_id"

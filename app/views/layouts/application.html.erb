@@ -26,10 +26,13 @@
     <%= link_to root_path, class:"navbar-item" do %>
       <h1 class="title is-4" style="font-familly: cursive;">データ復旧シェアサービス</h1>
       <%= link_to  "ユーザー一覧", users_path %>
+      <%= link_to  "データ復旧一覧", services_path %>
     <% end %>
 
 
     <% if user_signed_in? %>
+      <%= link_to  "マイページ", user_path(current_user) %>
+      <%= link_to  "新規投稿", new_service_path %>
       <%= link_to  "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to  "ログイン", new_user_session_path %>
