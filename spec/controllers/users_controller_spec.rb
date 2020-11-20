@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  before do
+   
+    @user = FactoryBot.create(:user)
+    @service = FactoryBot.create(:service)
+    sign_in @user
+  end
 
   describe "index" do
     it "returns http success" do
@@ -15,21 +21,16 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "show" do
-    before do
-      @user = User.new(
-        username: "naoki",
-        email: "naoki@gmail.com",
-        password: "123456",
-        profile: "hello!"
-      )
-    end
+    
     it "returns http success" do
-      get :show, params:{id: @user.id}
+      
+      get :show, params:{id: @service.id}
       expect(response).to render_template :show
     end
 
     it "200レスポンスが帰ってきているか" do
-      get :show, params:{id: @user.id}
+      
+      get :show, params:{id: @service.id}
       expect(response).to have_http_status "200"
     end
   end

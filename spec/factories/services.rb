@@ -4,8 +4,8 @@ FactoryBot.define do
     company { "MyString" }
     device { "MyString" }
     problem { "MyString" }
-    price { 1 }
-    days { 1 }
+    price { "MyString" }
+    days { "MyString" }
     result { "MyString" }
     body { "MyText" }
     image_id { "MyString" }
