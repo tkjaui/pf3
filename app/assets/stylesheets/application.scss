@@ -14,15 +14,7 @@
  *= require_self
  */
 
-//  @import  "bulma";
+@import  "bulma";
 
- star_body{
-   min-height: 100vh;
-   color: white;
-   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-   font-family: sans-serif;
- }
+
  
- .profile_image{
-   border-radius: 50%;
- }

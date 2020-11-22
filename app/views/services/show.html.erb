@@ -1,37 +1,51 @@
-<h1>データ復旧詳細</h1>
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <div class="card mb-6">
+          <header class="card-header">
+            <p class="card-header-info">
+              <%= attachment_image_tag @service, :image %>
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="card-body">
+              <p class="card-text">会社名：<%= @service.company %></p>
+              <p class="card-text">機種：<%= @service.device %></p>
+              <p class="card-text">症状：<%= @service.problem %></p>
+              <p class="card-text">金額：<%= @service.price %></p>
+              <p class="card-text">納品までの日数：<%= @service.days %></p>
+              <p class="card-text">結果：<%= @service.result %></p>
+              <p class="card-text">コメント：<%= @service.body %></p>
+              <p class="card-text">投稿者：<%= @service.user.username %></p>
+              <p class="card-text"><small class="text-muted">投稿日時：<%= @service.updated_at.strftime("%Y-%m-%d %H:%M")%></small></p>
 
+              <% if @service.user.id == current_user.id  %>
+                <%= link_to "投稿内容を編集", edit_service_path(@service), class:"btn btn-primary" %>
+              <% end %><br>
 
-<div class="card mb-5" style="max-width: 1000px;">
-  <div class="row no-gutters">
-    <div class="col-md-5">
-      <%= attachment_image_tag @service, :image, size:20*20 %>
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <p class="card-text">会社名：<%= @service.company %></p>
-        <p class="card-text">機種：<%= @service.device %></p>
-        <p class="card-text">症状：<%= @service.problem %></p>
-        <p class="card-text">金額：<%= @service.price %></p>
-        <p class="card-text">納品までの日数：<%= @service.days %></p>
-        <p class="card-text">結果：<%= @service.result %></p>
-        <p class="card-text">コメント：<%= @service.body %></p>
-        <p class="card-text">投稿者：<%= @service.user.username %></p>
-        <p class="card-text"><small class="text-muted">投稿日時：<%= @service.updated_at.strftime("%Y-%m-%d %H:%M")%></small></p>
+              <%= link_to user_path(@service.user) do %>
+                <%= @service.user.username %> 
+              <% end %>
+              さんのページへ<br />
+            </div>
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @service.review_score_percentage %>"%>★★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= @service.avg_score %>点 (<%= @service.reviews.count %>件のレビュー)
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render 'reviews/form', review: @review, service: @service %>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-
-<% if @service.user.id == current_user.id  %>
-  <%= link_to "編集", edit_service_path(@service), class:"btn btn-primary" %>
-<% end %>
-
-<%= link_to user_path(@service.user) do %>
-  <%= @service.user.username %> 
-<% end %>
-さんのページへ<br />
-
-プロフィール：<%= @service.user.profile %>
+  
 
 
