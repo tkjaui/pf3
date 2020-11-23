@@ -39,6 +39,7 @@
               <% end %>
               さんのページへ<br />
             </div>
+            <div><%= render 'reviews/form', review: @review, service: @service %></div>
             <div class="content average-score">
               <div class="star-rating mb-2">
                 <div class="star-rating-front" style="width: <%= @service.review_score_percentage %>%">★★★★★</div>
@@ -46,11 +47,8 @@
               </div>
               <div class="average-score-display ml-3 pt-2">
                 平均 <%= @service.avg_score %>点 (<%= @service.reviews.count %>件のコメント)
-              </div>
-              
-              
+              </div>  
             </div>
-            <div><%= render 'reviews/form', review: @review, service: @service %></div>
           </div>
         </div>
         

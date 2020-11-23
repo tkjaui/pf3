@@ -5,5 +5,4 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create]
   end
   root to: "services#index"
-  
 end
