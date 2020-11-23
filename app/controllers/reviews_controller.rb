@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to service_reviews_path(@review.service)
     else
-      @service = Service.find(params[:id])
-      render 'service/show'
+      @service = Service.find(params[:service_id])
+      render 'services/show'
     end
   end
 

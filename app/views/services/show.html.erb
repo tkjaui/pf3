@@ -1,3 +1,13 @@
+<section class="hero is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="title">
+        データ復旧詳細
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section mt-6">
   <div class="container">
     <div class="columns is-centered">
@@ -21,7 +31,7 @@
               <p class="card-text"><small class="text-muted">投稿日時：<%= @service.updated_at.strftime("%Y-%m-%d %H:%M")%></small></p>
 
               <% if @service.user.id == current_user.id  %>
-                <%= link_to "投稿内容を編集", edit_service_path(@service), class:"btn btn-primary" %>
+                <%= link_to "投稿内容を編集", edit_service_path(@service), class:"button is-primary" %>
               <% end %><br>
 
               <%= link_to user_path(@service.user) do %>
@@ -31,16 +41,19 @@
             </div>
             <div class="content average-score">
               <div class="star-rating mb-2">
-                <div class="star-rating-front" style="width: <%= @service.review_score_percentage %>"%>★★★★★★</div>
-                <div class="star-rating-back">★★★★★</div>
+                <div class="star-rating-front" style="width: <%= @service.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-back"></div>
               </div>
               <div class="average-score-display ml-3 pt-2">
-                <%= @service.avg_score %>点 (<%= @service.reviews.count %>件のレビュー)
+                平均 <%= @service.avg_score %>点 (<%= @service.reviews.count %>件のコメント)
               </div>
+              
+              
             </div>
+            <div><%= render 'reviews/form', review: @review, service: @service %></div>
           </div>
         </div>
-        <%= render 'reviews/form', review: @review, service: @service %>
+        
       </div>
     </div>
   </div>

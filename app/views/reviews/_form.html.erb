@@ -1,4 +1,6 @@
-<p class="is-size-4 mb-3">レビューを書く</p>
+
+
+<p class="is-size-4 mb-3 pt-6">コメントを書く</p>
 
 <% if review.errors.any? %>
   <div class="notification is-danger">
@@ -37,7 +39,7 @@
     <%= f.hidden_field :score, id: "rating-value" %>
     <%= f.text_field :content, class: "textarea" %>
     <%= f.submit "保存", class: "button mt-3" %>
-    <%= link_to "他のレビューを見る", service_reviews_path(service), class: "button light ml-3 mt-3" %>
+    <%= link_to "他のコメントを見る", service_reviews_path(service), class: "button light ml-3 mt-3" %>
   <% end %>
 </div>
 

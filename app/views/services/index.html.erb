@@ -1,47 +1,73 @@
-<section class="section mt-2">
+<section class="hero is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <div class="title">
+        データ復旧一覧
+      </div>
+      <p class="lead">初めてのデータ復旧。一人で悩まずにあなたに合った業者さんを見つけましょう。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
-    <div class="row">
-      <div class="column is-one-third">
-        <% @services.each do |service| %>
-          <div class="card mx-2 my-2 px-1 py-1">
-            <header class="card header">
-              <p class="card-header-info">
+    <div class="columns is-multiline">
+      <% @services.each do |service| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
                 <%= link_to service_path(service) do %>
-                  <%= attachment_image_tag service, :image, size:30*30 %>
+                  <%= attachment_image_tag service, :image %>
                 <% end %>
-                <div class="card-body">
-                  <h5 class="card-text">機器：<%= service.device%></h5>
-                  <p class="card-text">コメント：<%= service.body %></p>
-                  <p class="card-text">投稿日時：<%= service.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+              </figure>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48*48">
+                      <%= attachment_image_tag service.user, :profile_image, fallback:"no-image.png", class:"profile_image" %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="title"><%= link_to service.user.username, user_path(service.user) %></div>
+                  </div>
+                </div>
+
+                <div class="content">
+                  <div>機器：<%= service.device%></div>
+                  <div>金額：<%= service.price %></div>
+                  <div>コメント：<%= service.body %></div>
+                  <div class="card-text">投稿日時：<%= service.updated_at.strftime("%Y-%m-%d %H:%M") %></div>
                   投稿者：
                   <%= link_to user_path(service.user.id) do %>
                     <%= service.user.username %></a>さん
                   <% end %> 
-                </div>  
-              </p>  
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="content average-score">
-                  <div class="star-rating-front" style="width: <%= service.review_score_percentage %>%">★★★★★</div>
-                  <div class="star-rating-back">★★★★★</div>
                 </div>
-                <div class="average-score-display ml-3 pt-2">
-                  <%= service.avg_score %>点 (<%= service.reviews.count %>件のレビュー)
+              </div>  
+            
+              <div class="card-content">
+                <div class="content">
+                  <div class="star-rating">
+                    <div class="star-rating-front" style="width: <%= service.review_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back"></div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    平均 <%= service.avg_score %>点 (<%= service.reviews.count %>件のレビュー)
+                  </div>
                 </div>
-              </div>
+              </div>  
+              <footer class="card-footer">
+                <%= link_to service_reviews_path(service), class:"button card-footer-item" do %>
+                  コメントを見る
+                <% end %>
+                <%= link_to service_path(service), class:"button card-footer-item" do %>
+                  コメントを書く
+                <% end %>
+              </footer> 
             </div>  
-            <footer class="card-footer">
-              <%= link_to service_reviews_path(service), class:"button card-footer-item" do %>
-                レビューを見る
-              <% end %>
-              <%= link_to service_path(service), class:"button card-footer-item" do %>
-                レビューを書く
-              <% end %>
-            </footer>   
-          </div>
-        <% end %>  
-      </div>
+          </div>  
+        </div>
+      <% end %>  
     </div>
   </div>
 </section>
