@@ -22,5 +22,4 @@ RSpec.describe User, type: :model do
     expect(FactoryBot.build(:user,username:"jiro", email:user1.email)).to_not be_valid
   end
 
-  
 end

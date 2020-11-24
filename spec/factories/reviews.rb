@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :review do
-    user { nil }
-    service { nil }
     content { "MyString" }
     score { 1 }
+    association :user
+    association :service
   end
 end
