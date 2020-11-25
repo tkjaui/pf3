@@ -28,6 +28,7 @@ group :development, :test do
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~>3.9'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -46,6 +47,7 @@ group :test do
   gem 'minitest-reporters',       '1.3.8'
   gem 'guard',                    '2.16.2'
   gem 'guard-minitest',           '2.4.6'
+  
 end
 
 group :production do
