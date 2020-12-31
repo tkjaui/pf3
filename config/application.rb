@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -18,5 +20,3 @@ module Pf3
     config.time_zone = 'Tokyo'
   end
 end
-
-

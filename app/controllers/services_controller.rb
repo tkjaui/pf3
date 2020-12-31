@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ServicesController < ApplicationController
-  before_action :authenticate_user!, except: [:index] #非ログインユーザーのアクセス制限
+  before_action :authenticate_user!, except: [:index] # 非ログインユーザーのアクセス制限
   def index
     @services = Service.all
   end
@@ -11,9 +13,7 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
-    if @service.user != current_user
-      redirect_to services_path, alert: '不正なアクセスです。'
-    end
+    redirect_to services_path, alert: '不正なアクセスです。' if @service.user != current_user
   end
 
   def new
@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
     if @service.save
       redirect_to service_path(@service), notice: '投稿に成功しました。'
     else
-      render :new #アクションを返さずにviewを返す
+      render :new # アクションを返さずにviewを返す
     end
   end
 
@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       redirect_to service_path(@service), notice: '更新に成功しました。'
     else
-      render :edit #アクションを返さずにviewを返す
+      render :edit # アクションを返さずにviewを返す
     end
   end
 
@@ -46,6 +46,7 @@ class ServicesController < ApplicationController
   end
 
   private
+
   def service_params
     params.require(:service).permit(:company, :device, :problem, :price, :days, :result, :body, :image)
   end

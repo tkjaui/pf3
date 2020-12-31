@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Service < ApplicationRecord
   belongs_to :user, optional: true
   attachment :image
@@ -14,19 +16,18 @@ class Service < ApplicationRecord
   end
 
   def avg_score
-    unless self.reviews.empty?#emptyじゃなければ下記を返す
-      reviews.average(:score).round(1).to_f#小数点0.1まで記載、四捨五入
-    else
+    if reviews.empty?
       0.0
+    else # emptyじゃなければ下記を返す
+      reviews.average(:score).round(1).to_f # 小数点0.1まで記載、四捨五入
     end
   end
 
   def review_score_percentage
-    unless self.reviews.empty?
-      reviews.average(:score).round(1).to_f*100/5
-    else
+    if reviews.empty?
       0.0
+    else
+      reviews.average(:score).round(1).to_f * 100 / 5
     end
   end
-
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'Review',  type: :feature do
+feature 'Review', type: :feature do
   feature 'ログイン前' do
     # scenario 'コメント登録ができないか' do
     #   get :show, params: {id: @service.id}
@@ -9,17 +11,16 @@ feature 'Review',  type: :feature do
   end
 
   feature 'ログイン後' do
-    let(:user) {create(:user)}
+    let(:user) { create(:user) }
 
     background do
       visit new_user_session_path
-      fill_in "Email", with:user.email
-      fill_in "Password", with:user.password
-      click_on "Log in"
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_on 'Log in'
     end
 
     scenario 'コメント登録ができるか' do
-      
     end
   end
 end
