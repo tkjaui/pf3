@@ -14,7 +14,6 @@ gem 'active_storage_validations', '0.8.9'
 gem 'bcrypt',                     '3.1.13'
 gem 'bootsnap',                   '1.4.6', require: false
 gem 'bootstrap-sass',             '3.4.1'
-gem 'bootstrap-will_paginate',    '1.0.0'
 gem 'faker',                      '2.11.0'
 gem 'image_processing',           '1.9.3'
 gem 'jbuilder',                   '2.10.0'
@@ -23,7 +22,6 @@ gem 'puma',                       '4.3.5'
 gem 'sass-rails',                 '6.0.0'
 gem 'turbolinks',                 '5.2.1'
 gem 'webpacker',                  '4.2.2'
-gem 'will_paginate',              '3.3.0'
 
 group :development, :test do
   gem 'byebug', '11.1.3', platforms: %i[mri mingw x64_mingw]
@@ -63,3 +61,4 @@ gem 'devise'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'kaminari'

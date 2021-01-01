@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index] # 非ログインユーザーのアクセス制限
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(8)
   end
 
   def show

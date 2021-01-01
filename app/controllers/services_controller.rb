@@ -3,7 +3,7 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!, except: [:index] # 非ログインユーザーのアクセス制限
   def index
-    @services = Service.all
+    @services = Service.all.page(params[:page]).per(6)
   end
 
   def show
