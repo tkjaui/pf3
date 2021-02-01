@@ -62,3 +62,5 @@ gem 'kaminari'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'jquery-rails'
+gem 'dotenv-rails'

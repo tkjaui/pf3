@@ -4,6 +4,7 @@ class ServicesController < ApplicationController
   before_action :authenticate_user!, except: [:index] # 非ログインユーザーのアクセス制限
   def index
     @services = Service.all.page(params[:page]).per(6)
+    @service = Service.new
   end
 
   def show
@@ -28,6 +29,8 @@ class ServicesController < ApplicationController
     else
       render :new # アクションを返さずにviewを返す
     end
+    Service.create(service_params)
+    @services = Service.all
   end
 
   def update
