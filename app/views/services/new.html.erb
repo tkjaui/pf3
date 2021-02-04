@@ -25,14 +25,14 @@
       <div class="column is-6">
         <%= form_for @service do |f| %>
         <div class="field">
-          <%= f.label :company, "会社名", class:"label" %>
+          <%= f.label :company, "会社名"%>
           <%= f.select :company, [["デジタルデータリカバリー", "デジタルデータリカバリー"], ["オントラック", "オントラック"], 
                                 ["ライブデータ", "ライブデータ"], ["AOS", "AOS"], ["ウィンゲット", "ウィンゲット"], 
                                 ["PCエコ", "PCエコ"], ["データレスキュー", "データレスキュー"], ["ロジテック", "ロジテック"]], 
                                 include_blank: "選択して下さい" %>
         </div>
         <div class="field">
-          <%= f.label :device, "機種名", class:"label" %>
+          <%= f.label :device, "機種名" %>
           <%= f.select :device, [["ノートPC", "ノートPC"], ["外付けHDD", "外付けHDD"], 
                                 ["デスクトップPC", "デスクトップPC"], ["サーバー", "サーバー"], ["NAS", "NAS"], 
                                 ["スマホ", "スマホ"], ["SDカード", "SDカード"], ["USBメモリ", "USBメモリ"], 
@@ -40,13 +40,13 @@
                                 include_blank: "選択して下さい" %>
         </div>
         <div class="field">
-          <%= f.label :problem, "症状", class:"label" %>
+          <%= f.label :problem, "症状" %>
           <%= f.select :problem, [["データ削除", "データ削除"], ["機器が立ち上がらない", "機器が立ち上がらない"], 
                                 ["ブルースクリーン", "ブルースクリーン"]], 
                                 include_blank: "選択して下さい" %>
         </div>                      
         <div class="field">
-          <%= f.label :price, "金額", class:"label" %>
+          <%= f.label :price, "金額"%>
           <%= f.select :price, [["〜9,999円", "〜9,999円"], ["10,000円〜29,999円", "10,000円〜29,999円"], 
                                 ["10,000円〜29,999円", "10,000円〜29,999円"], ["10,000円〜29,999円", "10,000円〜29,999円"], 
                                 ["30,000円〜49,999円", "30,000円〜49,999円"], ["50,000円〜79,999円", "50,000円〜79,999円"], 
@@ -56,23 +56,23 @@
                                 include_blank: "選択して下さい" %>
         </div>
         <div class="field">
-          <%= f.label :days, "納品までの日数", class:"label" %>
+          <%= f.label :days, "納品までの日数"%>
           <%= f.select :days, [["〜1日", "〜1日"], ["2日〜3日", "2日〜3日"],  ["4日〜5日", "4日〜5日"], 
                                 ['6日〜10日', '6日〜10日'], ["11日〜20日", "11日〜20日"],  ["21日〜30日", "21日〜30日"],
                                 ["31日以上", "31日以上"]],
                                 include_blank: "選択して下さい" %>
         </div>
         <div class="field">
-          <%= f.label :result, "結果",class:"label" %>
+          <%= f.label :result, "結果"%>
           <%= f.select :result, [["成功", "成功"], ["失敗", "失敗"]],  
                                 include_blank: "選択して下さい" %>
         </div>
         <div class="field">
-          <%= f.label :body, "コメント", class:"label" %>
+          <%= f.label :body, "コメント"%>
           <%= f.text_area :body, class:"input" %>
         </div>
         <div class="field">
-          <%= f.label :image, "画像", class:"label" %>
+          <%= f.label :image, "画像"%>
           <%= f.attachment_field :image, class:"input"%>
         </div>
         
