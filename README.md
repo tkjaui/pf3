@@ -5,11 +5,19 @@
 
 # 使用技術
 ・MySQL
+
 ・puma
+
 ・Javascript
+
 ・Ruby 2.7.1, Rails 6.0.3.4
+
 ・RSpec（テストフレームワーク）
+
 ・Docker,Docker-compose（開発環境）
+
 ・Heroku/本番環境
+
 ・Mac Big Sur(11.2)
+
 ・VSCode, Vim
