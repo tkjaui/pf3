@@ -5,7 +5,6 @@
 
 # 使用技術
 ・MySQL
-
 ・puma
 
 ・Javascript
